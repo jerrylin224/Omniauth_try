@@ -1,3 +1,4 @@
+require "omniauth-google-oauth2"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -275,4 +276,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, "1957821210910170", "dd2b1e1d66ce0cf7e6dabf9c531e6672", callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :google_oauth2, "282478048625-rukne9l0afgkqq5mg0ftkqkl9pn3ke6s.apps.googleusercontent.com", "ZsnRWPTTzuhHzsX5t6h9oxgH", { access_type: "offline", approval_prompt: "" }
+  # config.omniauth :github, 'b96362612273de52ea77', '327ac7a8d28fde5fe2b21431b8f7aafc3b08abd1', callback_url: "http://localhost:3000/users/auth/github/callback"
+  config.omniauth :github, 'b96362612273de52ea77', '327ac7a8d28fde5fe2b21431b8f7aafc3b08abd1', :scope => 'user:email'
 end
